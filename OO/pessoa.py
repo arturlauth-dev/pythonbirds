@@ -18,3 +18,7 @@ if __name__ == '__main__':
     print(luciano.idade)
     for filho in luciano.filhos:
         print (f'{filho.nome} +')
+    luciano.sobrenome = 'Ramalho' #esse tipo de ação
+    del luciano.filhos              #deve ser evitado
+    print(luciano.__dict__)
+    print(renzo.__dict__)
