@@ -19,7 +19,7 @@ from atores import (Obstaculo, Porco, PassaroVermelho, PassaroAmarelo,
 from fase import Fase, Ponto, EM_ANDAMENTO, VITORIA, DERROTA
 
 
-class AtorFake:
+class AtorFake: #AtorMock
     def __init__(self, x=0, y=0):
         self.y = y
         self.x = x
@@ -106,7 +106,7 @@ class FaseTestes(TestCase):
 
     def teste_acabou_com_porcos_e_passaros(self):
         fase = Fase()
-        porcos = [PorcoFake(1, 1) for _ in range(2)]  # criando 2 porcos
+        porcos = [PorcoFake(1, 1) for _ in range(2)]  # criando 2 porcos  #chama apenas de _ pois só serve pra interar
         passaros = [PassaroFake(1, 1) for _ in range(2)]  # criando 2 pássaros
         fase.adicionar_porco(*porcos)
         fase.adicionar_passaro(*passaros)
@@ -179,7 +179,7 @@ class FaseTestes(TestCase):
         self.assertTrue(passaros[0].foi_lancado())
         self.assertTrue(passaros[1].foi_lancado())
 
-    def teste_intervalo_de_colisao_padrão(self):
+    def teste_intervalo_de_colisao_padrao(self):
         '''
         Método que testa se o intervalo de colisão da Fase é repassado aos
         atores. Padrão de intervalo é 1
